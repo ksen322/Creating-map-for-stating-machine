@@ -1,38 +1,52 @@
 # Creating-map-for-stating-machine
 
-## Общие сведения
-Данное ПО было создано с целью создания карты для реализации машины состояний в графической реализации  
-Репозиторий состоит из 4 файлов: main, map, robor и support  
-В main реализован основной код, который запускает главный цикл программы и включает в себя файлы map and robot  
+## General info
+This software was created to create a map for implementing a state machine in graphical implementation  
+Repositiry consists of four files:
+* main
+* robot
+* map
+* support
 
-## Управление
-S - выбор стартовой точки  
-G - выбор конечной точки  
-O - выбор точек для препятствий  
-Space - фиксирование изменения  
-W - запуск роботов
+<a href = 'https://github.com/ksen322/Creating-map-for-stating-machine/blob/main/main.py'>*main*</a> implements the main code that runs the main loop of the programm and icnludes map and robot files    
 
-# Описание программ
+## Control
+S - starting point selection  
+G - ending point selection 
+O - points of obstacles selection  
+Space - fixed the changes  
+W - running robots
+
+# Description of programms
 
 ## Main
-Программа представляет из себя стандартный конструктор для запуска и работы графического окна библиотеки pygame   
+The programm is constructor for launching the graphical window of the pygame library   
 Также в программе создаются экзмепляр класса Map и 3 экземпляра класса Robot  
-Благодаря простейшему механизму машины состояний программа инициализируется в состоянии Creating map  
-После завершения редактирования карты с помощи кнопки W программа переходит в состояние Simulating work  
-В этом состоянии происходит инициализация экземпляров класса Robot и их последующая отрисовка  
+Thanks to the simplest state machine mechanism the programm is initialized in the __Creating map__ state    
+FAfter finishing editing the map using W button the programm goes into the __Simulating work__ state   
+In this state instances of the Robot class are initialized and subsequently rendered  
 
 ## Map
-Данный код выполняет следующие графические функции: отрисовка фона в виде шахматной сетки, стартовой и конечной точек и препятствий  
-Внутри класса Map сначала создается пустая карта в виде двумерного массива  
-Далее при помощи машины состояний мы можем переходить в разные режимы редактирования  
-Первый режим запускается с помощью кнопки S и позволяет с помощью ЛКМ выбрать стартовую позицию  
-Второй режим с помощью кнопки G выбираем конечную точку  
-Третий режим с помощью кнопки O позволяет выставлять препятствия с помощью ЛКМ, а ПКМ - удалять их  
-Важно понимать, что при добавлении любой из выше перечисленных точек происходят логические проверки на невозможность поместить одну точку в другую (нельзя поставить стартовую позицию на место препятствия или конечной точки и т.д.)  
+This code perfoms the following graphical functions:
+* drawing a background in the form of chess grid  
+* drawing a start point  
+* drawing an end point  
+* drawing an obstacles
+
+Inside class Map, firstly, an empty map is created as a two-dimensional array   
+Next, using the state machine we can switch to different editing modes   
+The first mode is launched using S button and allows select the starting position using LMB   
+The second mode - select end point using G button  
+The third mode selected using O button and allows to set obstacles using LMB and delete them using RMB   
+It is important to understand that whtn adding any of the above points logical checks are made to see if it is impossible to place one point in another (you can't put the starting position in the place of an obstacle or end point and etc.)
 
 ## Robot
-Данный код является шаблонным, внутри класса находится конструктор для изменения состояний робота  
-Практически реализована только функция отрисовки  
+This code is template  
+There is a constructor inside the class for changing the states of the robot  
+Only the rendering function is practically implemented    
 
 ## Support
-Данный код - вспомогательный, в нем реализованы 2 функции: отрисовка клетки по заданным координатам и отрисовка текста по заданным координатам  
+This code is auxiliary  
+It emplements 2 functions:  
+* drawing cell at given coordinates  
+* drawing text at given coordinates  
